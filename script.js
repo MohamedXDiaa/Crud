@@ -69,4 +69,17 @@ function displayProduct(arr) {
     }
     productList.innerHTML = cartoona;
   }
+  function searchProduct() {
+    let searchTerm = searchInput.value;
+    let filteredProducts = [];
+    for (let i = 0; i < productContainer.length; i++) {
+      if (
+        productContainer[i].Name.toLowerCase().includes(searchTerm.toLowerCase())
+      ) {
+        filteredProducts.push(productContainer[i]);
+      }
+    }
+    productList.innerHTML = "";
+    displayProduct(filteredProducts);
+  }
   
