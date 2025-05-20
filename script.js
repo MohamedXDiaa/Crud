@@ -83,3 +83,24 @@ function displayProduct(arr) {
     displayProduct(filteredProducts);
   }
   
+  function editProduct(index) {
+    productCode.value = productContainer[index].code;
+    productName.value = productContainer[index].Name;
+    productPrice.value = productContainer[index].price;
+    productCondition.value = productContainer[index].condition;
+    editBtn.classList.remove("d-none");
+    addBtn.classList.add("d-none");
+    newIndex = index;
+  }
+  function updateProduct() {
+    productContainer[newIndex].code = productCode.value;
+    productContainer[newIndex].Name = productName.value;
+    productContainer[newIndex].price = productPrice.value;
+    productContainer[newIndex].condition = productCondition.value;
+    localStorage.setItem("product", JSON.stringify(productContainer));
+    displayProduct(productContainer);
+    clearInputs();
+    editBtn.classList.add("d-none");
+    addBtn.classList.remove("d-none");
+  }
+  
