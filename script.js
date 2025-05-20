@@ -103,4 +103,9 @@ function displayProduct(arr) {
     editBtn.classList.add("d-none");
     addBtn.classList.remove("d-none");
   }
+  function deleteProduct(index) {
+    productContainer.splice(index, 1);
+    displayProduct(productContainer);
+    localStorage.setItem("product", JSON.stringify(productContainer));
+  }
   
